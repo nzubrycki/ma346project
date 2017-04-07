@@ -1,6 +1,6 @@
 function [ output_args ] = my_interp( x, y )
 %MY_INTERP 
-%   Textbook page 124
+%  Using the algorithm on Textbook page 124
 % Calculates the Newton Interpolating Polynomial via the divided
 % difference algorithm
 
