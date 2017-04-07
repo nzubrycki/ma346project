@@ -19,7 +19,7 @@ realNewton = intrplon(time, degrees, 12, 'linear');
 display(realNewton);
 
 % my implementation of the Newton Interpolating Polynomial
-%myNewton = my_interp(time, degrees);
+myNewton = my_interp(time, degrees);
 
 % plot of the time (as x) vs the degrees (as y)
 plot(time, degrees);
