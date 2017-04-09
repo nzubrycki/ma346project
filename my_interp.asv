@@ -9,26 +9,25 @@ if (length(x) ~= length(y) || length(x) <= 0)
     return;
 end
 
-%F0,0 = y(1)
-
 n=length(x);
 F=zeros(n, n);
 
-for i=1:(n-1)
+% establish first column of matrix
+for i=1:(n)
     F(i,1)=y(i);
-
-display('F:');
-display(F);
+end
+%display('F:');
+%display(F);
 
 % STEP 1
-for i = 2:(n-1)
+for i = 2:(n)
     for j = 2:(i-1)
-        F(i, j)=(y(i)-y(i-j))/(x(i)-x(i-j));
+        F(i, j)=(F(i, (j-1))-F((i-1), (j-1)))/(x(i)-x(i-j));
     end
 end
 
 % STEP 2
-display(F);
+display(F, 'Fi,j');
 
 return;
 

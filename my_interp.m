@@ -12,7 +12,8 @@ end
 n=length(x);
 F=zeros(n, n);
 
-% establish first column of matrix
+% establish first column of matrix 
+% where f(xo), f(x1)...f(xn) = F0,0 , F1,0 ...Fn,0
 for i=1:(n)
     F(i,1)=y(i);
 end
@@ -22,12 +23,14 @@ end
 % STEP 1
 for i = 2:(n)
     for j = 2:(i-1)
-        F(i, j)=(y(i)-y(i-j))/(x(i)-x(i-j));
+        F(i, j)=(F(i, (j-1))-F((i-1), (j-1)))/(x(i)-x(i-j));
     end
 end
 
 % STEP 2
-display(F);
+for i=1:n
+    display(F(i,i), 'Fi,j');
+end
 
 return;
 

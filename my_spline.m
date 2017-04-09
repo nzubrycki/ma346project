@@ -53,15 +53,16 @@ end
 % STEP 7
 % Note that the cubic spline can be created using the following arrays of
 % values. 
-display(x);% x(j)
-display(y);% a(j)
-display(b);% b(j)
-display(c);% c(j)
-display(d);% d(j)
+%display(x);% x(j)
+display(y, 'a(j)');% a(j)
+display(b, 'b(j)');% b(j)
+display(c, 'c(j)');% c(j)
+display(d, 'd(j)');% d(j)
 
 % the following were used in debugging
 % display(alpha);
 % display(h);
+
 
 return;
 
