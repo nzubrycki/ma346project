@@ -10,14 +10,14 @@ xi= 1:.01:12;
 
 % calculation of the real spline
 realSpline = spline(time, degrees, xi);
-display(realSpline);
+%display(realSpline);
 
 % my implementation of the cubic spline
 mySpline = my_spline(time, degrees);
 
 % calculation of the Newton Interpolating polynomial  
 realNewton = pchip(time, degrees, xi);
-display(realNewton);
+%display(realNewton);
 
 % my implementation of the Newton Interpolating Polynomial
 myNewton = my_interp(time, degrees);
@@ -25,3 +25,6 @@ myNewton = my_interp(time, degrees);
 % plot of the time (as x) vs the degrees (as y)
 plot(time, degrees, 'o', xi, realSpline, '-', xi, realNewton, '-.');
 legend('Data', 'Spline', 'Newton', 'Location', 'Northwest')
+
+% Average Temperature calculation
+averageTemperature = averageTemp();
