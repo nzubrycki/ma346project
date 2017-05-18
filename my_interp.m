@@ -15,8 +15,6 @@ F=zeros(n, n);
 % establish first column of matrix 
 % where f(xo), f(x1)...f(xn) = F0,0 , F1,0 ...Fn,0
 F(:, 1) = y';
-%display('F:');
-%display(F);
 
 % STEP 1
 for j = 2:(n)
@@ -25,16 +23,27 @@ for j = 2:(n)
     end
 end
 
-evaluations(n)=F(n, 1);
-for i=(n-1):-1:1
-    for j=1:n
-        evaluations(i) = F(n, 1)+((j-i)*evaluations(i+1));
+%display(F);
+
+% V = an
+evaluations(n)=F(1, n);
+
+% V = ai + (x ? xi ) · V , i = n ? 1, n ? 2, . . . , 0
+for j=1:(n-1)
+    for i=(n-1):-1:1
+        evaluations(i) = F(1, i)+((j-i)*evaluations(i+1));
     end
 end
 
-display(evaluations);
+%display(evaluations);
 
 return;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NOTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Essetially, I changed the function so taht it now returns the evaluations
+% of the newton interpolating polynomial at x=1 thru n. It still looks
+% really waired, but I think this is the best it will get.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 end
 

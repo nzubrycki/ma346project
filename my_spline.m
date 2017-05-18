@@ -1,4 +1,4 @@
-function [ b, c, d ] = my_spline( x, y )
+function [ integrals ] = my_spline( x, y )
 %MY_SPLINE  
 %   Using the algorithm on Textbook pg 147
 % Calculates the natural cubic spline
@@ -54,15 +54,28 @@ end
 % Note that the cubic spline can be created using the following arrays of
 % values. 
 %display(x);% x(j)
-display(y, 'a(j)');% a(j)
-display(b, 'b(j)');% b(j)
-display(c, 'c(j)');% c(j)
-display(d, 'd(j)');% d(j)
+%display(y, 'a(j)');% a(j)
+%display(b, 'b(j)');% b(j)
+%display(c, 'c(j)');% c(j)
+%display(d, 'd(j)');% d(j)
 
 % the following were used in debugging
 % display(alpha);
 % display(h);
 
+b(n)=0;
+d(n)=0;
+for i = 1:12
+    p = [d(i) c(i) b(i) y(i)]; 
+    q = polyint(p);
+    integrals(i) = diff(polyval(q, [i (i+1)]));
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NOTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Here I changed it so that the spline returns the list of integrated
+% values of the spline on each interval. It looks very off, so I'm not
+% entirely sure what is wrong.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 return;
 
