@@ -23,8 +23,8 @@ realNewton = pchip(time, degrees, xi);
 myNewton = my_interp(time, degrees);
 
 % plot of the time (as x) vs the degrees (as y)
-plot(time, degrees, 'o', xi, realSpline, '-', xi, realNewton, '-.');
-legend('Data', 'Spline', 'Newton', 'Location', 'Northwest')
+plot(time, degrees);
+plot(time, myNewton);
 
 % Average Temperature calculation
 averageTemperature = averageTemp();
